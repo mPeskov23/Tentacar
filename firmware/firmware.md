@@ -1,0 +1,1 @@
+This directory will contain all the code associated with our project
