@@ -22,16 +22,20 @@ class VisionModule:
 
         self.picam2.start()
 
-        base_options = core.BaseOptions(file_name = model, use_coral = False, num_threads = num_threads)
+        base_options = core.BaseOptions(file_name = self.model, use_coral = False, num_threads = num_threads)
         detection_options = processor.DetectionOptions(max_results = 5, score_threshold = .5)
         options = vision.ObjectDetectorOptions(base_options = base_options, detection_options = detection_options)
         self.detector = vision.ObjectDetector.create_from_options(options)
 
     def get_detections(self):
-        while True:
-            im = picam2.capture_array()
-            im = cv2.flip(im, -1)
-            im_rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
-            im_tensor = vision.TensorImage.create_from_array(im_rgb)
-            detections = self.detector.detect(im_tensor)
-            utils.visualize(im, detections)
+        im = self.picam2.capture_array()
+        im = cv2.flip(im, -1)
+        im_rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+        im_tensor = vision.TensorImage.create_from_array(im_rgb)
+        detections = self.detector.detect(im_tensor)
+        #utils.visualize(im, detections)
+        return detections
+            
+    def get_nearest_object_distance(self):
+
+        return distance

@@ -1,15 +1,16 @@
-import vision
+from vision import VisionModule
 import tenta
 import car
 
 def main():
     c = car.Car()
     tentacle = tenta.Tentacle()
+    vision = VisionModule(num_threads=2)
 
     while True():
-        scene = vision.get_scene()
-        coordinates = vision.get_object_coordinates(scene)
-        if coordinates == None:
+        detections = vision.get_detections()
+        distance = vision.get_nearest_object_distance()
+        if distance == None:
             car.turn_right()
             continue
         else:
