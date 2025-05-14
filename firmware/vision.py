@@ -5,29 +5,33 @@ from tflite_support.task import core
 from tflite_support.task import processor
 from tflite_support.task import vision
 
-import utils_vision
+import utils_vision as utils
 
-model = 'efficientdet_lite0.tflite'
-num_threads = 4
-disp_width = 1280
-disp_height = 720
+class VisionModule:
+    def __init__(self, num_threads = 2):
+        self.model = 'efficientdet_lite0.tflite'
+        self.num_threads = num_threads
+        disp_width = 1280
+        disp_height = 720
 
-picam2 = Picamera2()
-picam2.preview_configuration.main.size = (disp_width, disp_height)
-picam2.preview_configuration.main.format = 'RGB888'
-picam2.preview_configuration.align()
-picam2.configure("preview")
+        self.picam2 = Picamera2()
+        self.picam2.preview_configuration.main.size = (disp_width, disp_height)
+        self.picam2.preview_configuration.main.format = 'RGB888'
+        self.picam2.preview_configuration.align()
+        self.picam2.configure("preview")
 
-picam2.start()
+        self.picam2.start()
 
-base_options = core.BaseOptions(file_name = model, use_coral = False, num_threads = num_threads)
-detection_options = processor.DetectionOptions(max_results = 5, score_threshold = .5)
-options = vision.ObjectDetectorOptions(base_options = base_options, detection_options = detection_options)
-detector = vision.ObjectDetector.create_from_options(options)
+        base_options = core.BaseOptions(file_name = model, use_coral = False, num_threads = num_threads)
+        detection_options = processor.DetectionOptions(max_results = 5, score_threshold = .5)
+        options = vision.ObjectDetectorOptions(base_options = base_options, detection_options = detection_options)
+        self.detector = vision.ObjectDetector.create_from_options(options)
 
-while True:
-    im = picam2.capture_array()
-    im = cv2.flip(im, -1)
-    im_rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
-    im_tensor = vision.TensorImage.create_from_array(im_rgb)
-    detections = detector.detect(im_tensor)
+    def get_detections(self):
+        while True:
+            im = picam2.capture_array()
+            im = cv2.flip(im, -1)
+            im_rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+            im_tensor = vision.TensorImage.create_from_array(im_rgb)
+            detections = self.detector.detect(im_tensor)
+            utils.visualize(im, detections)
