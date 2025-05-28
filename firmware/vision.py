@@ -6,9 +6,24 @@ from tflite_support.task import processor
 from tflite_support.task import vision
 
 import utils_vision as utils
+import RPi.GPIO as GPIO
+import time
+
+TRIG_PIN = 17
+ECHO_PIN = 27
 
 class VisionModule:
     def __init__(self, num_threads = 2):
+        self.TRIG_PIN = TRIG_PIN
+        self.ECHO_PIN = ECHO_PIN
+
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+        GPIO.setup(self.TRIG_PIN, GPIO.OUT)
+        GPIO.setup(self.ECHO_PIN, GPIO.IN)
+        GPIO.output(self.TRIG_PIN, GPIO.LOW)
+        time.sleep(0.1)
+        
         self.model = 'efficientdet_lite0.tflite'
         self.num_threads = num_threads
         disp_width = 1280
@@ -37,5 +52,24 @@ class VisionModule:
         return detections
             
     def get_nearest_object_distance(self):
-        distance = 0 # Integrar un US (o 2)
+        GPIO.output(self.TRIG_PIN, True)
+        time.sleep(0.00001)
+        GPIO.output(self.TRIG_PIN, False)
+
+        start_time = time.time()
+        timeout = start_time + 0.04
+
+        while GPIO.input(self.ECHO_PIN) == 0 and time.time() < timeout:
+            start_pulse = time.time()
+        
+        while GPIO.input(self.ECHO_PIN) == 1 and time.time() < timeout:
+            end_pulse = time.time()
+        
+        try:
+            pulse_duration = end_pulse - start_pulse
+            distance = pulse_duration * 17150  # см
+            distance = round(distance, 2)
+        except:
+            distance = -1
+        
         return distance
