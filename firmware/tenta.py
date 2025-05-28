@@ -1,25 +1,37 @@
-class Cable():
-    def _init_(self, id):
-        self.dummy = id
+import time
+from adafruit_servokit import ServoKit
 
-    def tighten(self, force):
-        pass
+class Tentacle:
+    def __init__(self, max_angle=90, step=1, delay=0.1):
+        self.kit = ServoKit()
+        self.servos = {
+            'a': self.kit.servo[0],
+            'b': self.kit.servo[1],
+            'c': self.kit.servo[2]
+        }
+        self.max_angle = max_angle
+        self.step = step
+        self.delay = delay
+        self.target_angles = {key: 0 for key in self.servos}
 
-    def relax(self, force):
-        pass
+        for servo in self.servos.values():
+            servo.set_pulse_width_range(500, 2500)
+            servo.angle = 0
 
-class Tentacle():
-    def __init__(self, n_phalanx: int):
-        self.cable_1 = Cable(1)
-        self.cable_2 = Cable(2)
-        self.cable_3 = Cable(3)
+    def grab(self):
+        grabbing = True
+        while grabbing:
+            grabbing = False
+            for key, servo in self.servos.items():
+                current_angle = self.target_angles[key]
+                next_angle = current_angle + self.step
 
-    # Just a dummy function prototype
-    def twist_1(self):
-        self.cable_1.tighten(3)
-        self.cable_2.relax(2)
-        self.cable_3.relax(3)
+                if next_angle > self.max_angle:
+                    continue
 
+                servo.angle = next_angle
+                self.target_angles[key] = next_angle
+                grabbing = True
+                time.sleep(self.delay)
 
-
-### Observaciones movimiento: mod 3d(!) cable.length 35 cm
+        return self.target_angles
