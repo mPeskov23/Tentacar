@@ -20,3 +20,6 @@ class Tentacle():
         self.cable_2.relax(2)
         self.cable_3.relax(3)
 
+
+
+### Observaciones movimiento: mod 3d(!) cable.length 35 cm

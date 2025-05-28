@@ -37,5 +37,5 @@ class VisionModule:
         return detections
             
     def get_nearest_object_distance(self):
-
+        distance = 0 # Integrar un US (o 2)
         return distance
