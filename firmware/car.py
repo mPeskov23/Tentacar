@@ -39,6 +39,10 @@ class Car:
         GPIO.output(self.BIN2, GPIO.LOW)
         self.pwm_b.ChangeDutyCycle(self.speed)
 
+        time.sleep(0.2)
+
+        self.stop()
+
     def stop(self):
         self.pwm_a.ChangeDutyCycle(0)
         self.pwm_b.ChangeDutyCycle(0)
