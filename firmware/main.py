@@ -2,6 +2,7 @@ from vision import VisionModule
 from car import Car
 from tenta import Tentacle
 from time import time
+from bug2_module import bug2
 
 def main():
     car = Car()
@@ -23,7 +24,9 @@ def main():
                 continue
 
             if distance > OBJECT_DISTANCE_THRESHOLD or distance == -1:
-                car.move_forward()
+                success = bug2(car, vision)
+                if not success:
+                    continue
             else:
                 car.stop()
                 success = tentacle.grab()
