@@ -1,6 +1,20 @@
-def bug2(car, vision, distance_threshold=15):
+import time
+
+def avoid_obstacle(car):
+    car.turn_right(rotation=1)
+    car.move_forward()
+    car.turn_left(rotation=1)
+    time.sleep(0.1)
+
+def bug2(car, vision, object_threshold=25, wall_threshold=10):
     detections = vision.get_detections()
+    distance = vision.get_nearest_object_distance()
+
     if not detections.detections:
+        if 0 < distance < wall_threshold:
+            avoid_obstacle(car)
+        else:
+            car.turn_left()
         return False
 
     bbox = detections.detections[0].bounding_box
@@ -18,12 +32,13 @@ def bug2(car, vision, distance_threshold=15):
     while True:
         distance = vision.get_nearest_object_distance()
 
-        if 0 < distance < distance_threshold:
+        if 0 < distance < wall_threshold:
+            avoid_obstacle(car)
+            return False
+
+        if 0 < distance < object_threshold:
             car.stop()
             return True
 
-        detections = vision.get_detections()
-        if not detections.detections:
-            return False
-
         car.move_forward()
+        time.sleep(0.1)
