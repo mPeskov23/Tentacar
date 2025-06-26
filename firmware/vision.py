@@ -9,8 +9,11 @@ import utils_vision as utils
 import RPi.GPIO as GPIO
 import time
 
-TRIG_PIN = 17
-ECHO_PIN = 27
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+TRIG_PIN = 10
+ECHO_PIN = 9
 
 class VisionModule:
     def __init__(self, num_threads = 2):

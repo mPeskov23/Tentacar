@@ -12,7 +12,7 @@ class Car:
 
         self.BIN1 = 5
         self.BIN2 = 6
-        self.PWMB = 12
+        self.PWMB = 19
 
         self.STBY = 21
 

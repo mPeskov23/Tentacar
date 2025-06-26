@@ -1,9 +1,14 @@
 import time
+import board
+import busio
 from adafruit_servokit import ServoKit
 
 class Tentacle:
     def __init__(self, max_angle=90, step=1, delay=0.1):
-        self.kit = ServoKit()
+        i2c = busio.I2C(board.SCL, board.SDA)
+
+        self.kit = ServoKit(channels=16, i2c=i2c)
+
         self.servos = {
             'a': self.kit.servo[0],
             'b': self.kit.servo[1],
