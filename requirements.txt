@@ -1,11 +1,7 @@
 numpy
 tflite
-adafruit-circuitpython-pca9685
-adafruit-blinka
+opencv-python
 picamera2
 gpiozero
-logging
-threading
-board
-busio
-opencv-python
+adafruit-blinka
+adafruit-circuitpython-servokit
