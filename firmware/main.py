@@ -6,8 +6,8 @@ from bug2_module import bug2
 
 def main():
     car = Car()
-    tentacle = Tentacle()
     vision = VisionModule(num_threads=2)
+    tentacle = Tentacle(vision)
 
     OBJECT_DISTANCE_THRESHOLD = 25
     SCAN_TURN_DURATION = 0.5
@@ -29,7 +29,7 @@ def main():
                     continue
             else:
                 car.stop()
-                success = tentacle.grab()
+                success = tentacle.grab_object()
                 if success:
                     tentacle.place_in_basket()
 
