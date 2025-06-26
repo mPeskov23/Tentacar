@@ -47,7 +47,7 @@ class Tentacle:
         return base_angle, arm_angle
     
     def get_ik_angles(self, x_cm, y_cm): #Para el futuro (necesitamos todas las medidas y unas cuantas pruebas)
-        L1, L2 = 10, 10 #Aquí necesitaremos las medidas reales
+        L1, L2 = 20, 31 #Aquí necesitaremos las medidas reales
         dist = math.hypot(x_cm, y_cm)
 
         if dist > L1 + L2:
