@@ -1,1 +1,0 @@
-This directory will contain testing scripts for all the modules

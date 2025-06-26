@@ -1,7 +1,0 @@
-numpy
-tflite
-adafruit-circuitpython-pca9685
-adafruit-blinka
-gpiozero
-logging
-threading
