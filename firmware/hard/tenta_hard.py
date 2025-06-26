@@ -29,7 +29,8 @@ class Tentacle:
         channel = self.servos.get(name)
         if channel is not None:
             pwm = self.angle_to_pwm(angle)
-            self.pca.set_pwm(channel, 0, pwm)
+            self.pca.set_pwm(channel, pwm) 
+
 
     def reset_position(self):
         self.set_angle('base', 0)
