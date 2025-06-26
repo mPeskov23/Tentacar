@@ -6,3 +6,6 @@ picamera2
 gpiozero
 logging
 threading
+board
+busio
+opencv-python
