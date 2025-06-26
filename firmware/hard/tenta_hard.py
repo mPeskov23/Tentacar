@@ -4,8 +4,7 @@ import numpy as np
 from pca9685_driver import Device
 
 class Tentacle:
-    def __init__(self, vision_module):
-        self.vision = vision_module
+    def __init__(self):
         self.pca = Device(0x40)  # Адрес по умолчанию PCA9685
         self.pca.set_pwm_freq(50)  # 50 Гц — частота стандартного сервопривода
 
