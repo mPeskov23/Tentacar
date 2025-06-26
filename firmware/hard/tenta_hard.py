@@ -5,8 +5,8 @@ from pca9685_driver import Device
 
 class Tentacle:
     def __init__(self):
-        self.pca = Device(0x40)  # Адрес по умолчанию PCA9685
-        self.pca.set_pwm_frequency(50)  # 50 Гц — частота стандартного сервопривода
+        self.pca = Device(0x40)
+        self.pca.set_pwm_frequency(50)
 
         self.servos = {
             'base': 0,
@@ -14,12 +14,10 @@ class Tentacle:
             'grip': 2
         }
 
-        # Инициализация в поднятом положении
         self.set_angle('arm', 90)
         time.sleep(0.5)
 
     def angle_to_pwm(self, angle):
-        # Преобразуем угол [0, 180] в PWM [205, 410]
         pulse_min = 205
         pulse_max = 410
         pwm_val = int(pulse_min + (pulse_max - pulse_min) * (angle / 180.0))
