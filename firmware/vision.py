@@ -46,7 +46,7 @@ class VisionModule:
         self.detector = vision.ObjectDetector.create_from_options(options)
 
     def get_detections(self):
-        im = self.picam2.capture_array()
+        self.im = self.picam2.capture_array()
         im = cv2.flip(im, -1)
         im_rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
         im_tensor = vision.TensorImage.create_from_array(im_rgb)

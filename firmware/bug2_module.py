@@ -1,4 +1,5 @@
 import time
+from wall_detection_module import *
 
 def avoid_obstacle(car):
     car.turn_right(rotation=1)
@@ -11,7 +12,7 @@ def bug2(car, vision, object_threshold=25, wall_threshold=10):
     distance = vision.get_nearest_object_distance()
 
     if not detections.detections:
-        if 0 < distance < wall_threshold:
+        if is_pared1(vision.im):
             avoid_obstacle(car)
         else:
             car.turn_left()
