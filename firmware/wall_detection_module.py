@@ -1,20 +1,4 @@
 import cv2
-WALL_THRESHOLD = 10
-FRAME_W = 1280
-FRAME_H = 720
-WALL_AREA_THRESHOLD = 0.40
-
-def is_pared1(det, distance_cm):
-    if 0 < distance_cm < WALL_THRESHOLD:
-        bbox = det.bounding_box
-        bbox_w = bbox.xmax - bbox.xmin
-        bbox_y = bbox.ymax - bbox.ymin
-        area_ratio = (bbox_w * bbox_y) / (FRAME_W * FRAME_H)
-        width_ratio = bbox_w /FRAME_W
-        return area_ratio > WALL_AREA_THRESHOLD or width_ratio > 0.7
-    return False
-    
-
 OBJECT_THRESHOLD = 120 # pixel
 
 def objectes_petits(det):
@@ -28,7 +12,7 @@ def objectes_petits(det):
     return objectes
 
 # OPCION 1
-def is_pared2(image):
+def is_pared1(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5,5), 0)
     edges = cv2.Canny(blur, 50, 150)
@@ -46,7 +30,7 @@ def is_pared2(image):
     return False
         
 
-def is_pared3(image):
+def is_pared2(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5,5), 0)
     edges = cv2.Canny(blur, 50, 150)
