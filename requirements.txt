@@ -5,4 +5,3 @@ picamera2
 gpiozero
 adafruit-blinka
 adafruit-circuitpython-servokit
-python-pctrl
