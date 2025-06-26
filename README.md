@@ -1,6 +1,9 @@
 <img src="https://github.com/mPeskov23/Tentacar/blob/master/documents/TentaCar.png?raw=true" align="right" width="300" alt="header pic"/>
 
 # Tentacar Project
+![GitHub_Action_Linux_CI](https://github.com/AtsushiSakai/PythonRobotics/workflows/Linux_CI/badge.svg)
+![GitHub_Action_Windows_CI](https://github.com/AtsushiSakai/PythonRobotics/workflows/Windows_CI/badge.svg)
+[![Build status](https://ci.appveyor.com/api/projects/status/sb279kxuv1be391g?svg=true)](https://github.com/mPeskov23/Tentacar/tree/master/testval)
 
 # Taula de Continguts
 ## [/3D](https://github.com/mPeskov23/Tentacar/tree/master/3D) 
