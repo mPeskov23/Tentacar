@@ -37,6 +37,7 @@ def main():
 
     except KeyboardInterrupt:
         car.stop()
+        car.cleanup()
 
 if __name__ == "main":
     main()
