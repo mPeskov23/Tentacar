@@ -28,7 +28,7 @@ class Car:
         self.pwm_a.start(0)
         self.pwm_b.start(0)
 
-        self.speed = 60
+        self.speed = 200
 
     def move_forward(self):
         GPIO.output(self.AIN1, GPIO.HIGH)
