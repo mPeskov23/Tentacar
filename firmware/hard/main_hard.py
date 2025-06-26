@@ -1,11 +1,9 @@
 from car_hard import Car
 from tenta_hard import Tentacle
-car = Car()
-car.move_forward()
+import time
 
 gripper = Tentacle()
 
-gripper.grab_object()
-
-
-car.cleanup()
+for i in range(6):
+    gripper.servos["arm"].angle = 90
+    time.sleep(0.5)

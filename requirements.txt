@@ -2,5 +2,4 @@ numpy
 tflite
 picamera2
 gpiozero
-adafruit-blinka
-adafruit-circuitpython-servok
+pca9685_driver
