@@ -67,7 +67,7 @@ class VisionModule:
         
         try:
             pulse_duration = end_pulse - start_pulse
-            distance = pulse_duration * 17150  # см
+            distance = pulse_duration * 17150
             distance = round(distance, 2)
         except:
             distance = -1
