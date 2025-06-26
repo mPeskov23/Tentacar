@@ -13,6 +13,8 @@ En aquest directori es troben tots els models 3D utilitzats durant la creació d
 
 **tentacle_600mm.stl:** Arxiu que conté el tentacle imprés per les dimensions del nostre cotxe
 
+**tentacar_complet.stl** Arxiu que conté el conjunt complet de forma precaria per tenir una idea del projecte final
+
 **tentacle_complet_pinza.png:** Imatge que conté el model 3D final del cotxe i la pinça junts
 
 
