@@ -23,7 +23,7 @@ class Tentacle:
         pulse_min = 205
         pulse_max = 410
         pwm_val = int(pulse_min + (pulse_max - pulse_min) * (angle / 180.0))
-        return np.clip(pwm_val, 205, 410)
+        return int(np.clip(pwm_val, 205, 410))
 
     def set_angle(self, name, angle):
         channel = self.servos.get(name)
