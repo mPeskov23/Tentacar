@@ -22,5 +22,5 @@ En aquest directori es localitza tot el codi font i recursos necessaris referent
 
 **wall_detection_module.py:** Formes de detecció de pareds per tal de poder esquivar-les i implementar bug2 algorithm correctament.
 
-**pinza.py:** Control de la pinça del robot fent que pugui realitzar una posició "home", resetejar la posició i agafar un objecte per possar-lo al seu cistell.
+**tenta.py:** Control de la pinça del robot fent que pugui realitzar una posició "home", resetejar la posició i agafar un objecte per possar-lo al seu cistell.
 
