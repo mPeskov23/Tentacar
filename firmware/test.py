@@ -1,6 +1,9 @@
 from tenta import Tentacle
+from vision import VisionModule
 
-gripper = Tentacle()
+vision = VisionModule
+
+gripper = Tentacle(vision)
 
 for i in range(150):
     gripper.servos["base"].angle = i
