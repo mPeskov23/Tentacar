@@ -2,4 +2,4 @@ numpy
 tflite
 picamera2
 gpiozero
-pca9685_driver
+adafruit_servokit
