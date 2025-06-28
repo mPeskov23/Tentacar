@@ -1,7 +1,6 @@
 from tenta import Tentacle
-from vision import VisionModule
 
-vision = VisionModule
+vision = 42
 
 gripper = Tentacle(vision)
 
