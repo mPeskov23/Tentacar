@@ -5,7 +5,16 @@ vision = 42
 
 gripper = Tentacle(vision)
 
-for i in range(150):
-    gripper.servos["grip"].angle = i
-    sleep(0.2)
+gripper.servos["grip"].angle = 90
+sleep(5)
+gripper.servos["grip"].angle = 0
+sleep(5)
+gripper.servos["base"].angle = 90
+sleep(5)
+gripper.servos["base"].angle = 0
+sleep(5)
+gripper.servos["arm"].angle = 90
+sleep(5)
+gripper.servos["arm"].angle = 0
+sleep(5)
     
