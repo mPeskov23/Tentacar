@@ -18,7 +18,7 @@ class Tentacle:
             'grip': self.kit.servo[2]
         }
         self.target_angles = {key: 0 for key in self.servos}
-        self.servo["arm"].angle = 90
+        self.servos["arm"].angle = 90
 
         for servo in self.servos.values():
             servo.set_pulse_width_range(500, 2500)
