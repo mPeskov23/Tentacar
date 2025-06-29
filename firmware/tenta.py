@@ -12,15 +12,16 @@ class Tentacle:
 
         self.vision = vision_module
 
-        for servo in self.servos.values():
-            servo.set_pulse_width_range(1000, 2000)
-            servo.angle = 0
-
         self.servos = {
             'base': self.kit.servo[0],
             'arm': self.kit.servo[1],
             'grip': self.kit.servo[2]
         }
+        
+        for servo in self.servos.values():
+            servo.set_pulse_width_range(1000, 2000)
+            servo.angle = 0
+        
         self.target_angles = {key: 0 for key in self.servos}
         self.servos["arm"].angle = 90
 
