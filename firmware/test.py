@@ -1,20 +1,11 @@
-from tenta import Tentacle
-from time import sleep
+from adafruit_servokit import ServoKit
+import time
 
-vision = 42
+kit = ServoKit(channels=16)
 
-gripper = Tentacle(vision)
+kit.servo[2].set_pulse_width_range(500, 2500)
 
-gripper.servos["grip"].angle = 90
-sleep(5)
-gripper.servos["grip"].angle = 0
-sleep(5)
-gripper.servos["base"].angle = 90
-sleep(5)
-gripper.servos["base"].angle = 0
-sleep(5)
-gripper.servos["arm"].angle = 90
-sleep(5)
-gripper.servos["arm"].angle = 0
-sleep(5)
-    
+kit.servo[2].angle = 100
+time.sleep(2)
+kit.servo[2].angle = 45
+time.sleep(2)
