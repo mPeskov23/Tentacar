@@ -1,11 +1,12 @@
-from adafruit_servokit import ServoKit
-import time
+from car import Car
 
-kit = ServoKit(channels=16)
+car = Car()
 
-kit.servo[2].set_pulse_width_range(500, 2500)
+car.move_forward()
+car.speed = car.speed * 1.1
+car.move_forward()
+car.speed = car.speed * 1.1
+car.move_forward
 
-kit.servo[2].angle = 100
-time.sleep(2)
-kit.servo[2].angle = 45
-time.sleep(2)
+car.stop()
+car.cleanup()
