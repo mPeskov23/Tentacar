@@ -1,5 +1,8 @@
 numpy
 tflite
+tflite-support>=0.3.3
+opencv-python
 picamera2
 gpiozero
-adafruit_servokit
+adafruit-blinka
+adafruit-circuitpython-servokit
