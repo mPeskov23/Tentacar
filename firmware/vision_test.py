@@ -1,5 +1,4 @@
 import cv2
-import time
 from vision import VisionModule
 from car import Car
 import utils_vision as utils
