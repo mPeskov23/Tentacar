@@ -1,6 +1,7 @@
 numpy
 tflite
 tflite-support>=0.3.3
+tflite-runtime
 opencv-python
 picamera2
 gpiozero
