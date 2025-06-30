@@ -18,7 +18,7 @@ for i in range(3):
 
     annotated = utils.visualize(frame, detections)
 
-    cv2.imshow("Detections", annotated)
+    cv2.imwrite("1.png", annotated)
 
     print("Press any button to continue")
     cv2.waitKey(0)
