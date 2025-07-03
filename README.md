@@ -36,7 +36,7 @@ Per aquest motiu, **TentaCar** és una realitat. Es tracta d'un robot amb comple
 
 # "How To Run"
 
-Per tal de fer funcionar TentaCar és necessaria la connexió amb una rasberry pi 0 i la seva càmera a més de les funcionalitats i llibreries necessaries per ejecutar el codi. Aquestes es troben dins del fitxer [*Requeriments.txt*](https://github.com/mPeskov23/Tentacar/blob/master/requirements.txt) o de manera més ràpida executant un [init.sh](https://github.com/mPeskov23/Tentacar/blob/master/init.sh) de la següent manera:
+Per tal de fer funcionar TentaCar és necessaria la connexió amb una rasberry pi 0 (recomanem el SO "Bullseye" per evitar els conflictes de dependències) i la seva càmera a més de les funcionalitats i llibreries necessaries per ejecutar el codi. Aquestes es troben dins del fitxer [*Requeriments.txt*](https://github.com/mPeskov23/Tentacar/blob/master/requirements.txt) o de manera més ràpida executant un [init.sh](https://github.com/mPeskov23/Tentacar/blob/master/init.sh) de la següent manera:
 ```bash
 bash init.sh
 ```
