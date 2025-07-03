@@ -1,5 +1,4 @@
 from tenta import Tentacle
-from time import sleep
 
 tenta = Tentacle(42)
 
