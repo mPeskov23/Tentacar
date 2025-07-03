@@ -2,7 +2,7 @@ from car import Car
 from tenta import Tentacle
 from time import sleep
 
-car = Car(42)
+car = Car()
 tenta = Tentacle(42)
 
 car.move_forward(2)
