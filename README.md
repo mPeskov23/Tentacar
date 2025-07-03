@@ -46,9 +46,9 @@ bash init.sh
 
 Adrián Margarit 1665218 (Test Lead) 
 
-Biel Alavedra 1666110 (SW Lead)
+Biel Alavedra 1666110 (HW Lead)
 
-Mikhail Peskov 1534227 (HW Lead)
+Mikhail Peskov 1534227 (SW Lead)
 
 Lucas Aviñó 1566876 (3D lead)
 
