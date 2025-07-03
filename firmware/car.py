@@ -30,7 +30,7 @@ class Car:
 
         self.speed = 100
 
-    def move_forward(self, movement_time):
+    def move_forward(self, movement_time=1):
         GPIO.output(self.AIN1, GPIO.HIGH)
         GPIO.output(self.AIN2, GPIO.LOW)
         self.pwm_a.ChangeDutyCycle(self.speed)
