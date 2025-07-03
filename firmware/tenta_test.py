@@ -19,9 +19,9 @@ try:
         input("Press Enter to continue")
 
         print("Smoothly moving to 90 degrees")
-        tenta.smooth_move("base", 0, 45)
-        tenta.smooth_move("arm", 0, 45)
-        tenta.smooth_move("grip", 0, 45)
+        tenta.smooth_move("base", 45, 90)
+        tenta.smooth_move("arm", 45, 90)
+        tenta.smooth_move("grip", 45, 90)
 
         input("Press Enter to continue")
 
@@ -30,7 +30,7 @@ try:
         tenta.smooth_move("arm", 90, 135)
         tenta.smooth_move("grip", 90, 135)
 
-        input("Press Enter to finish")
+        input("Press Enter to repeat")
 
 except KeyboardInterrupt:
     print("Keyboard Interruption")
