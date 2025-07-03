@@ -88,3 +88,20 @@ class Tentacle:
         self.reset_position()
 
         return True
+    
+    def grab_test(self):
+        self.servos["base"].angle = 0
+        time.sleep(0.1)
+        self.servos["grip"].angle = 90
+        time.sleep(0.1)
+        self.servos["arm"].angle = 45
+        time.sleep(0.1)
+        self.servos["grip"].angle = 0
+        time.sleep(0.1)
+        self.servos["arm"].angle = 180
+        time.sleep(0.1)
+        self.servos["base"].angle = 180
+        time.sleep(0.1)
+        self.servos["grip"].angle = 180
+        time.sleep(0.1)
+        self.reset_position() 
