@@ -24,6 +24,7 @@ class Tentacle:
 
     def reset_position(self):
         self.servos['base'].angle = 0
+        self.servos['shoulder'].angle = 90
         self.servos['arm'].angle = 90
         self.servos['grip'].angle = 90
         time.sleep(0.5)
