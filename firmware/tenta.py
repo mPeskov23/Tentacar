@@ -13,9 +13,10 @@ class Tentacle:
         self.vision = vision_module
 
         self.servos = {
-            'base': self.kit.servo[0],
+            'base': self.kit.servo[3],
+            'shoulder': self.kit.servo[2],
             'arm': self.kit.servo[1],
-            'grip': self.kit.servo[2]
+            'grip': self.kit.servo[0]
         }
         
         for servo in self.servos.values():
