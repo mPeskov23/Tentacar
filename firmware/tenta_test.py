@@ -1,14 +1,20 @@
 from tenta import Tentacle
+from time import sleep
 
 tenta = Tentacle(42)
 
 try:
     while True:
         print("0 degrees")
-        tenta.servos["base"].angle = 0
-        tenta.servos["shoulder"].angle = 0
-        tenta.servos["arm"].angle = 0
-        tenta.servos["grip"].angle = 0
+        for angle in range(180, -1, -1):
+            try:
+                tenta.servos["base"].angle = angle
+                tenta.servos["shoulder"].angle = angle
+                tenta.servos["arm"].angle = angle
+                tenta.servos["grip"].angle = angle
+                sleep(0.2)
+            except KeyboardInterrupt:
+                break
 
         input("Press Enter to continue")
 
