@@ -2,37 +2,39 @@ from tenta import Tentacle
 
 tenta = Tentacle(42)
 
-print("0 degrees")
+try:
+    while True:
+        print("0 degrees")
+        tenta.servos["base"].angle = 0
+        tenta.servos["arm"].angle = 0
+        tenta.servos["grip"].angle = 0
 
-tenta.servos["base"].angle = 0
-tenta.servos["arm"].angle = 0
-tenta.servos["grip"].angle = 0
+        input("Press Enter to continue")
 
-input("Press Enter to continue")
+        print("Smoothly moving to 45 degrees")
+        tenta.smooth_move("base", 0, 45)
+        tenta.smooth_move("arm", 0, 45)
+        tenta.smooth_move("grip", 0, 45)
 
-print("smoothly moving to 45 degrees")
+        input("Press Enter to continue")
 
-tenta.smooth_move("base", 0, 45)
-tenta.smooth_move("arm", 0, 45)
-tenta.smooth_move("grip", 0, 45)
+        print("Quickly moving to 90 degrees")
+        tenta.servos["base"].angle = 90
+        tenta.servos["arm"].angle = 90
+        tenta.servos["grip"].angle = 90
 
-input("Press enter to continue")
+        input("Press Enter to continue")
 
-print("Quickly moving to 90 degrees")
+        print("Smooth moving to 135 degrees")
+        tenta.smooth_move("base", 90, 135)
+        tenta.smooth_move("arm", 90, 135)
+        tenta.smooth_move("grip", 90, 135)
 
-tenta.servos["base"].angle = 90
-tenta.servos["arm"].angle = 90
-tenta.servos["grip"].angle = 90
+        input("Press Enter to finish")
 
-input("Press enter to continue")
+except KeyboardInterrupt:
+    print("Keyboard Interruption")
 
-print("Smooth moving to 135 degrees")
-
-tenta.smooth_move("base", 90, 135)
-tenta.smooth_move("arm", 90, 135)
-tenta.smooth_move("grip", 90, 135)
-
-input("Press Enter to finish")
-
-print("resetting position")
-tenta.reset_position()
+finally:
+    print("Resetting position")
+    tenta.reset_position()
