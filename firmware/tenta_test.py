@@ -18,10 +18,10 @@ try:
 
         input("Press Enter to continue")
 
-        print("Quickly moving to 90 degrees")
-        tenta.servos["base"].angle = 90
-        tenta.servos["arm"].angle = 90
-        tenta.servos["grip"].angle = 90
+        print("Smoothly moving to 90 degrees")
+        tenta.smooth_move("base", 0, 45)
+        tenta.smooth_move("arm", 0, 45)
+        tenta.smooth_move("grip", 0, 45)
 
         input("Press Enter to continue")
 
@@ -35,6 +35,3 @@ try:
 except KeyboardInterrupt:
     print("Keyboard Interruption")
 
-finally:
-    print("Resetting position")
-    tenta.reset_position()

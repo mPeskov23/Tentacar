@@ -20,10 +20,6 @@ class Tentacle:
         
         for servo in self.servos.values():
             servo.set_pulse_width_range(1000, 2000)
-            servo.angle = 0
-        
-        self.target_angles = {key: 0 for key in self.servos}
-        self.servos["arm"].angle = 90
 
     def reset_position(self):
         self.servos['base'].angle = 0
