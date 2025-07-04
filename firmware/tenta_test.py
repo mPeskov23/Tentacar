@@ -13,6 +13,6 @@ t.reset()
 sleep(0.5)
 
 t.servos["base"].angle = 90
-sleep(0.5)
+sleep(2)
 
 t.reset()

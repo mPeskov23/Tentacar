@@ -5,7 +5,7 @@ car = Car()
 
 car.move_forward(1)
 sleep(1)
-car.turn_left(5)
+car.turn_left(7)
 car.move_forward(2)
 
 
