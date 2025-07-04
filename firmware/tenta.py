@@ -24,8 +24,11 @@ class Tentacle:
 
     def reset_position(self):
         self.servos['base'].angle = 0
+        time.sleep(0.1)
         self.servos['shoulder'].angle = 0
+        time.sleep(0.1)
         self.servos['arm'].angle = 0
+        time.sleep(0.1)
         self.servos['grip'].angle = 0
         self.base = 0
         self.shouder = 0
@@ -35,7 +38,9 @@ class Tentacle:
 
     def home(self):
         self.servos['base'].angle = 0
+        time.sleep(0.1)
         self.servos['shoulder'].angle = 0
+        time.sleep(0.1)
         self.servos['arm'].angle = 0
         self.base = 0
         self.shouder = 0
