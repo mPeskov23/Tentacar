@@ -27,7 +27,22 @@ class Tentacle:
         self.servos['shoulder'].angle = 0
         self.servos['arm'].angle = 0
         self.servos['grip'].angle = 0
+        self.base = 0
+        self.shouder = 0
+        self.arm = 0
+        self.grip = 0
         time.sleep(0.5)
+
+    def home(self):
+        self.servos['base'].angle = 0
+        self.servos['shoulder'].angle = 0
+        self.servos['arm'].angle = 0
+        self.base = 0
+        self.shouder = 0
+        self.arm = 0
+        time.sleep(0.5)
+        
+        
 
     def get_target_coordinates(self):
         detections = self.vision.get_detections()
@@ -88,21 +103,29 @@ class Tentacle:
         return True
     
     def grab_test(self):
-        self.servos["base"].angle = 0
+        self.smooth_move("base", self.base, 0)
+        self.base = 0
         time.sleep(0.1)
-        self.servos["grip"].angle = 90
+        self.smooth_move("arm", self.arm, 30)
+        self.arm = 30
         time.sleep(0.1)
-        self.servos["arm"].angle = 45
+        self.smooth_move("shoulder", self.shoulder, 165)
+        self.shoulder = 165
         time.sleep(0.1)
-        self.servos["grip"].angle = 0
+        self.smooth_move("grip", self.grip, 45)
+        self.grip = 45
         time.sleep(0.1)
-        self.servos["arm"].angle = 180
+        self.smooth_move("arm", self.arm, 90)
+        self.arm = 90
         time.sleep(0.1)
-        self.servos["base"].angle = 180
+        self.smooth_move("grip", self.grip, 0)
+        self.grip = 45
         time.sleep(0.1)
-        self.servos["grip"].angle = 180
-        time.sleep(0.1)
-        self.reset_position() 
+        self.home()
+        self.smooth_move("base", self.base, 90)
+        self.base = 90
+        self.servos["grip"].angle = 45
+        self.reset_position()
 
     def smooth_move(self, servo_name, start, end, step = 1, delay = 0.1):
         if start > end:
