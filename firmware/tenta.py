@@ -18,13 +18,15 @@ class Tentacle:
             'shoulder': self.kit.servo[2],
             'base': self.kit.servo[3]
         }
+
+        self.reset_position()
         
 
     def reset_position(self):
         self.servos['base'].angle = 0
-        self.servos['shoulder'].angle = 90
-        self.servos['arm'].angle = 90
-        self.servos['grip'].angle = 90
+        self.servos['shoulder'].angle = 0
+        self.servos['arm'].angle = 0
+        self.servos['grip'].angle = 0
         time.sleep(0.5)
 
     def get_target_coordinates(self):
