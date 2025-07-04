@@ -19,7 +19,7 @@ class Tentacle:
             'base': self.kit.servo[3]
         }
 
-        self.reset_position()
+        self.reset()
         
 
     def reset(self):
