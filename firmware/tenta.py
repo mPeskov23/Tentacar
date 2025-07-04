@@ -153,3 +153,5 @@ class Tentacle:
             self.servos[servo_name].angle = angle
             print(servo_name, "has an angle ", angle)
             time.sleep(delay)
+
+    
