@@ -102,8 +102,10 @@ class Tentacle:
         time.sleep(0.1)
         self.reset_position() 
 
-    def smooth_move(self, servo_name, start, end):
-        for angle in range(start, end):
+    def smooth_move(self, servo_name, start, end, step = 1, delay = 0.1):
+        if start > end:
+            step = step * -1
+        for angle in range(start, end, step):
             self.servos[servo_name].angle = angle
             print(servo_name, "has an angle ", angle)
-            time.sleep(0.1)
+            time.sleep(delay)
