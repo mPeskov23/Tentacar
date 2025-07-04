@@ -22,12 +22,26 @@ class Tentacle:
         self.reset_position()
         
 
-    def reset_position(self):
+    def reset(self):
         self.servos['base'].angle = 0
         time.sleep(0.1)
         self.servos['shoulder'].angle = 0
         time.sleep(0.1)
         self.servos['arm'].angle = 0
+        time.sleep(0.1)
+        self.servos['grip'].angle = 0
+        self.base = 0
+        self.shouder = 0
+        self.arm = 0
+        self.grip = 0
+        time.sleep(0.5)
+
+    def reset_slowly(self):
+        self.smooth_move("base", self.base, 0, 2)
+        time.sleep(0.1)
+        self.smooth_move("shoulder", self.shoulder, 0, 2)
+        time.sleep(0.1)
+        self.smooth_move("arm", self.arm, 0, 2)
         time.sleep(0.1)
         self.servos['grip'].angle = 0
         self.base = 0
