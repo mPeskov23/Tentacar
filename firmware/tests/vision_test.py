@@ -1,5 +1,5 @@
 import cv2
-from vision_hard import VisionModule
+from firmware.tests.vision_hard import VisionModule
 from car import Car
 import utils_vision as utils
 
