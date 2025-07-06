@@ -1,6 +1,6 @@
 #!/bin/bash
-python3 -m venv venv
+python3 -m venv venv --system-site-packages
 source venv/bin/activate
-venv/bin/pip install -r requirements.txt
+pip install -r requirements.txt
 cd ./firmware
-venv/bin/python main.py
+python3 main.py

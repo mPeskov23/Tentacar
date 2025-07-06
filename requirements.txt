@@ -1,4 +1,5 @@
 numpy
+RPi.GPIO
 tflite
 tflite-support>=0.3.3
 tflite-runtime
