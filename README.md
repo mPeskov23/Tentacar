@@ -64,7 +64,14 @@ bash init.sh
 
 ![7](https://github.com/mPeskov23/Tentacar/blob/master/testval/videos/coger_objeto.gif)  
 
-  
+# Social Usage
+
+Aquest projecte està pensat per a ajudar a:
+-  Persones grans o generalment a persones amb discapacitat motora que no es poden ajupir a agafar un objecte.  
+- Discoteces per tal de recollir després de una llarga nit de gots pel terra, etc.. 
+- Famíles amb nens a casa on normalment hi han joguines per totes bandes
+- Entre d'altres...
+
 # Autoría
 
 Adrián Margarit 1665218 (Test Lead) 
