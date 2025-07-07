@@ -1,4 +1,4 @@
-<img src="https://github.com/mPeskov23/Tentacar/blob/master/documents/TentaCar.png?raw=true" align="right" width="300" alt="header pic"/>
+<img src="https://github.com/mPeskov23/Tentacar/blob/master/documents/Tentacar.jpeg" align="right" width="300" alt="header pic"/>
 
 # Tentacar Project
 ![GitHub_Action_Linux_CI](https://github.com/AtsushiSakai/PythonRobotics/workflows/Linux_CI/badge.svg)
@@ -41,8 +41,32 @@ Per tal de fer funcionar TentaCar és necessaria la connexió amb una rasberry p
 bash init.sh
 ```
 
-# Autoría
+# Localització d'objectes
+L'objectiu principal d'aquest robot és la localització dels objectes pel terra per tal de, seguidament, agafar-los i possar-los al seu darrere. Per tant la tasca principal de Tentacar recau sobre els seus ulls. Es tracta d'una càmera integrada a la Rasberry Pi 0 on a partir de la llibrería PiCamera2 i un model preeentrenat anomenat efficientdet_lite0 es poden extreure tots els objectes presents en un frame. Per tant, cada X segons, Tentacar va agafant imatges del seu voltant i les passa per un procès per tal de trobar algún objecte vàlid que pugui agafar (ja que el model detecta també objectes grans com neveres)
 
+<div>
+    <img src="https://github.com/mPeskov23/Tentacar/blob/master/models/test_data/table.jpg" align="left" width="300" alt="header pic"/>  
+    <img src="https://github.com/mPeskov23/Tentacar/blob/master/documents/Resultats%20visio.png" align="right" width="300" alt="header pic"/>  
+</div><br><br>
+
+Com es pot veure en aquestes dues fotos, es detecten tots els objectes relacionats en la imatge. Però, hi ha un problema i és que les pareds no són detectades, per tan a partir d'un algorisme de contorns Canny i el càlcul del nivell de suavitat de la superficie de davant podem detectar si es tracta d'una pared o d'un objecte. Per tant, un cop tenim un objecte o pared detectats el cotxe s'ha de moure cap al seu objectiu. Quan no hi ha una pared es mou amb ajuda del sensor de proximitat controlant la orientació fent trigonometría bàsica i la distància fins a la qual s'ha de apropar. Però que passa si hi ha una pared o un pilar davant? Doncs s'utilitza bug2 algorithm, que el que fa és esquivar l'objecte intentant anar cap a la dreta d'aquest fins que trobi un camí cap endavant com en el següent exemple (esquerra: foto general de l'algorisme, dreta: exemple tentacar), on es veu un escenari extrem (ja que li em donat les coordenades del objecte, per a veure com funciona amb pareds llargues)
+
+<div>
+    <img src="https://github.com/mPeskov23/Tentacar/blob/master/testval/videos/Bug2.png" align="left" width="300" alt="header pic"/>
+    <img src="https://github.com/mPeskov23/Tentacar/blob/master/testval/videos/Bug2Algo.gif" align="right" width="300" alt="header pic"/>
+</div><br><br>
+
+# Funcionalitat de la pinça 
+
+Un cop tenim l'objecte detectat i ens em situat davant, agafem un frame per tal de localitzar l'objecte en relació a la posició on possar la pinça. Més tard, es fan els càlculs d'inverse cinemàtic per possar els angles corresponents a cada servo (tenint en compte una relació 1:2 al servo de rotació) i posicionar la pinza just a sobre del objecte per seguidament tancar-la, tornar a posició inicial, girar 90 graus (relació 1:2) el servo de rotació i deixar anar l'objecte cap a dins del cubell del robot. Aquests moviments es poden veure ens els següents passos:
+
+<p style="font-size: large;">Pas 1:</p>
+<img src="https://github.com/mPeskov23/Tentacar/blob/master/testval/videos/pinza.gif" align="left" width="300" alt="header pic"/><br><br>
+<p style="font-size: large;">Pas 2:</p>
+<img src="https://github.com/mPeskov23/Tentacar/blob/master/testval/videos/coger_objeto.gif" align="left" width="300" alt="header pic"/><br><br>
+
+  
+# Autoría
 
 Adrián Margarit 1665218 (Test Lead) 
 
@@ -50,7 +74,6 @@ Biel Alavedra 1666110 (HW Lead)
 
 Mikhail Peskov 1534227 (SW Lead)
 
-Lucas Aviñó 1566876 (3D lead)
 
 
 
